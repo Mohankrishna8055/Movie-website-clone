@@ -81,6 +81,12 @@ let movies =[
 ];
 
 
+function searchMovie(){
+    const searchtext = document.getElementById("movieSearch").value ;
+    console.log(searchtext);
+}
+
+
 
 
 
