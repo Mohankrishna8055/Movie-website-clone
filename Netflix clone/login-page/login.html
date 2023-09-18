@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link width="25px" rel="shortcut icon" href="https://w7.pngwing.com/pngs/280/326/png-transparent-logo-netflix-logos-and-brands-icon-thumbnail.png" type="image/x-icon">
     <title>Netflix-login</title>
     <link rel="stylesheet" href="login.css">
+    <link width="25px" rel="shortcut icon" href="https://w7.pngwing.com/pngs/280/326/png-transparent-logo-netflix-logos-and-brands-icon-thumbnail.png" type="image/x-icon">
 </head>
 <body>
     <header>
@@ -20,10 +20,11 @@
             </div>
         </div>
     </header>
-    <form action="/GITHUB/Movie-website-clone/Netflix clone/home-Afterlogin/netflix.html">
+    <form >
+        <!-- action="/GITHUB/Movie-website-clone/Netflix clone/home-Afterlogin/netflix.html" -->
         <div class="userName">
             <label for="name">Name:</label>
-            <input type="text" name="userName" id="userName" placeholder="Enter your userName">
+            <input type="text" name="userName" id="Uname" placeholder="Enter your userName">
         </div>
         <br>
         <div class="userEmailid">
@@ -32,23 +33,34 @@
         </div>
         <br>
         <div class="userPassword">
-            <label for="password">Create your Password</label>
+            <label for="password">Create your Password:</label>
             <input type="password" name="password" id="userpassword" placeholder="Enter your Password">
+            <br><br><label for="password">Retype your Password:</label>
+            <input type="password" name="Retypepassword" id="userRetypepassword" placeholder="Enter your Password again">
         </div>
+        <br>
+        <br>
+        <br>
         <br>
         <div class="userVerification">
             <input type="checkbox" name="verification" id="verification">
-            <label for="verification">Agree the terms and conditions</label>
+            <label for="verification"> I Agree the terms and conditions</label>
         </div>
         <br>
         <div class="submitBtn">
-            <input type="button" value="Submit" id="Submit">
+            <button id="Submit" onclick="check()">Sign Up</button>
         </div>
+        <br>
+        <br>
         <br>
         <div class="signinup">
             <button type="button">Sign In</button>
-            <button type="button">Sign Up</button>
+            <button type="button">Forget Password</button>
         </div>
     </form>
+
+
+
+    <script src="login.js"></script>
 </body>
 </html>
