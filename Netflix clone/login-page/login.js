@@ -92,7 +92,6 @@ function submitForm() {
     if (result === true) {
         document.getElementById("login-page").disabled = true;
         let val = document.getElementById("hidden-link");
-        console.log(val);
         val.click();
     }
 }
