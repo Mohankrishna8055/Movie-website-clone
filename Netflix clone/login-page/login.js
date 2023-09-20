@@ -3,22 +3,18 @@ function printdetails() {
     let Uemail = document.getElementById("userEmailid").value;
     let Upassword = document.getElementById("userpassword").value;
     let Uretypepass = document.getElementById("userRetypepassword").value;
-    let verification = document.getElementById("verification").value;
+    let verification = document.getElementById("verification");
     
     console.log(Uname);
     console.log(Uemail);
     console.log(Upassword);
     console.log(Uretypepass);
-    console.log(verification);
+    console.log(verification.checked);
 }
 
 
-function check1() {
-    let Upassword = document.getElementById("userpassword").value;
-    let Uretypepass = document.getElementById("userRetypepassword").value;
-
-    if (Upassword!=Uretypepass) {
-        alert("Retype password must be matched with passsword");
+function check1( pass1, pass2) {
+    if (pass1!=pass2) {
         return false;
     }
     else{
@@ -26,34 +22,77 @@ function check1() {
     }
 }
 
-function check2() {
-    
-    let verification = document.getElementById("verification").value;
-    if (!verification.checked()) {
-        alert("Please agree the terms and conditions");
-        return false;
-    }
-    else{
-        return true;
-    }
-}
-
-function check3(){
+function check(){
     let Uname = document.getElementById("Uname").value;
     let Uemail = document.getElementById("userEmailid").value;
+    let Upassword = document.getElementById("userpassword").value;
+    let Uretypepass = document.getElementById("userRetypepassword").value;
+    let verification = document.getElementById("verification");
 
-    if(Uname==""&&Uemail==""){
-        alert ("please enter all the manidatry fields");
+    if(Uname===""&&Uemail===""&&Upassword===""&&Uretypepass===""&&verification.checked===false){
+        alert("Please fill all manditaory fields");
         return false;
     }
-    else{
-        return true;
+    else if (Uname===""&&Uemail!=""&&Upassword!=""&&Uretypepass!=""&&verification.checked!=false){
+        alert("Please fill user name to continue");
+        return false;
     }
+    else if (Uname!=""&&Uemail===""&&Upassword!=""&&Uretypepass!=""&&verification.checked!=false){
+        alert("Please fill email id to continue");
+        return false;
+    }
+    else if (Uname!=""&&Uemail!=""&&Upassword===""&&Uretypepass!=""&&verification.checked!=false){
+        alert("Please fill password to continue");
+        return false;
+    }
+    else if (Uname!=""&&Uemail!=""&&Upassword!=""&&Uretypepass===""&&verification.checked!=false){
+        alert("Please retype the password to continue");
+        return false;
+    }
+    else if (Uname!=""&&Uemail!=""&&Upassword!=""&&Uretypepass!=""&&verification.checked===false){
+        alert("Please accept the terms and conditions");
+        return false;
+    }
+    else if (Uname!==""&&Uemail===""&&Upassword===""&&Uretypepass===""&&verification.checked==false){
+        alert("Please fill remainaing fields to continue");
+        return false;
+    }
+    else if (Uname!=""&&Uemail!==""&&Upassword===""&&Uretypepass===""&&verification.checked==false){
+        alert("Please fill remainaing fields to continue");
+        return false;
+    }
+    else if (Uname!=""&&Uemail!=""&&Upassword!=""&&Uretypepass===""&&verification.checked==false){
+        alert("Please fill remainaing fields to continue");
+        return false;
+    }
+    else if (Uname!=""&&Uemail!=""&&Upassword!=""&&Uretypepass!==""&&verification.checked==false){
+        alert("Please accept the terms and conditions");
+        return false;
+    }
+    else if (Uname!=""&&Uemail!=""&&Upassword!=""&&Uretypepass!==""&&(verification.checked==false||verification.checked!=false)){
+        let val= check1(Upassword,Uretypepass);
+        if(val===false){
+            alert("Retype password must be matched with passsword");
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    else{
+        return true;  
+    }
+    
 }
 
 
-// function totalcheck(){
-//     if((check1() && check2() && check3())==true){
-//         window.location.href = "C:/PROJECT FILES/GITHUB/Movie-website-clone/Netflix clone/home-Afterlogin/netflix.html";
-//     }
-// }
+function submitForm() {
+    let result = check();
+
+    if (result === true) {
+        document.getElementById("login-page").disabled = true;
+        let val = document.getElementById("hidden-link");
+        console.log(val);
+        val.click();
+    }
+}
